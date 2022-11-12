@@ -4,12 +4,11 @@ import os
 
 app = Flask(__name__)
 
-css = True
 
 @app.route("/")
 def gallery():
     image_names = os.listdir("static/pics")
-    return render_template("gallery.html",image_names=image_names,css=css)
+    return render_template("gallery.html",image_names=image_names)
 
 
 

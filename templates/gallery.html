@@ -1,26 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {%if css==True%}
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    {%endif%}
 
-</head>
-<body>
-    <div class="header">
-        <h1>PyGallery</h1>
-    </div>
+        <style>
+            #photos {
+                /* Prevent vertical gaps */
+                line-height: 0;
 
-    <div class="gallery">
-    {% for pic in image_names%}
-    <img  src="/static/pics/{{pic}}" loading="lazy">
-    {%endfor%}
-    </div>
-    
+                -webkit-column-count: 5;
+                -webkit-column-gap: 0px;
+                -moz-column-count: 5;
+                -moz-column-gap: 0px;
+                column-count: 5;
+                column-gap: 0px;
+            }
 
-</body>
+            #photos img {
+                /* Just in case there are inline attributes */
+                width: 100% !important;
+                height: auto !important;
+            }
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                font-family: Arial;
+                background: #ebe7e7;
+            }
+            .header {
+                text-align: center;
+                padding: 32px;
+                background: #e0dddd;
+            }
+
+            .gallery img {
+                width: 30%;
+                height: 300px;
+                object-fit: cover;
+                margin-top: 8px;
+                padding: 0 4px;
+                border-radius: 10px;
+            }
+
+            @media (max-width: 800px) {
+                .gallery img {
+                    width: 50%;
+                }
+            }
+
+            @media (max-width: 600px) {
+                .gallery img {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>PyGallery</h1>
+        </div>
+        <section id="photos">
+            <div class="gallery">
+                {% for pic in image_names%}
+
+                <img src="/static/pics/{{pic}}" loading="lazy" />
+                {%endfor%}
+            </div>
+        </section>
+    </body>
 </html>
