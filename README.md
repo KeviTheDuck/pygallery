@@ -5,7 +5,7 @@ A simple flask app to display all images and gifs present in a folder. The page 
 
 
 <p align="center">
-<img src="./static/pics/pygallery.png" alt="PyGallery" width="500px" >
+<img src="./media/pygallery.png" alt="PyGallery" width="500px" >
 </p>
 <hr>
 
